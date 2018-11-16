@@ -32,8 +32,8 @@ As of this writing, SONiC uses Debian Stretch, based on Linux 4.9 kernel, which 
 
 By default, linux comes up with the default namespace, all interfaces will be part of this default namespace. Whenever management VRF support is requried, a new namespace by name "management" is created and the management port "eth0" is moved to this namespace. Following linux commands shall be internally used for creating the same.
 
-    C1: ip netns add management
-    C2: ip link set dev eth0 netns management
+**Command 1** `ip netns add management`
+**Command 2** `ip link set dev eth0 netns management`
 
 The default namespace (also called default VRF) enables access to the front panel ports (FPP) and the the management namespace (also called management VRF) enables access to the management interface.
 Each new VRF created will map to a corresponding Linux namespace of the same name. Once if the namespace is created, all the configuration related to the namespace happens using the "ip netns exec <vrfname>" command of linux. 
